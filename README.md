@@ -15,4 +15,4 @@ For this method ("WeatherForecastController/Get") you should use "Basic authenti
 For this method ("WeatherForecastController/TestJwt") you should use "Bearer token authentication" like below example :
 <br />
 ![image](https://user-images.githubusercontent.com/65845296/198990587-0515cba5-5466-4c03-9fd2-74267d0d5acb.png)
-
+--------------------------------------------------------------------------------------------------------------
