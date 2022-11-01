@@ -10,7 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(BasicAuthenticationDefaults.AuthenticationScheme)
@@ -51,18 +50,11 @@ builder.Services.Configure<IpRateLimitOptions>(options =>
             new RateLimitRule
             {
                 Endpoint = "*",
-                Period = "100s",
-                Limit = 2
-            },
-            new RateLimitRule
-            {
-                Endpoint = "GET:/WeatherForecast/get",
-                Period = "10s",
-                Limit = 2
+                Period = "1s",
+                Limit = 1
             }
         };
 });
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
