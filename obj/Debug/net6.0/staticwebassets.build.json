@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "K483m2t1ho9GZQgM8sQGdO7Y47qJKU/devHEG7ymkJM=",
-  "Source": "test-backend-project",
-  "BasePath": "_content/test-backend-project",
+  "Hash": "aqiFdfcwnZD7sePxZkRLUm1pj0KTTuSot/6UkA/d3jQ=",
+  "Source": "TwoMethodRateLimitedAuthenticationAPI",
+  "BasePath": "_content/TwoMethodRateLimitedAuthenticationAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

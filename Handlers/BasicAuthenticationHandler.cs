@@ -1,10 +1,6 @@
 using System.Text;
 using System.Net.Http.Headers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
@@ -21,39 +17,36 @@ namespace test_backend_project.Handlers
         {
         }
 
-        protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
+        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
             {
-                return AuthenticateResult.Fail("Authentication failed");
+                return Task.FromResult(AuthenticateResult.Fail("Authentication failed"));
             }
 
             var headerValue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
-            var headerBytes = Convert.FromBase64String(headerValue.Parameter ?? "");
-            var credentials = Encoding.UTF8.GetString(headerBytes);
-            if (!string.IsNullOrEmpty(credentials))
-            {
-                string[] credentialArray = credentials.Split(":");
-                string userName = credentialArray[0];
-                string password = credentialArray[1];
+            byte[] headerBytes = Convert.FromBase64String(headerValue.Parameter ?? "");
+            string credentials = Encoding.UTF8.GetString(headerBytes);
+            if (string.IsNullOrEmpty(credentials)) return Task.FromResult(AuthenticateResult.Fail("UnAuthorized"));
+            string[] credentialArray = credentials.Split(":");
+            string userName = credentialArray[0];
+            string password = credentialArray[1];
 
-                if (userName == "admin" && password == "admin")
-                {
-                    var claims = new[] {
-                        new Claim(ClaimTypes.Name, userName),
-                        new Claim(ClaimTypes.NameIdentifier, userName),
-                     };
-                    var identity = new ClaimsIdentity(claims, Scheme.Name);
-                    var principal = new ClaimsPrincipal(identity);
-                    var authTicket = new AuthenticationTicket(principal, Scheme.Name);
-                    return AuthenticateResult.Success(authTicket);
-                }
-                else
-                {
-                    return AuthenticateResult.Fail("invalid credential");
-                }
+            if (userName == "admin" && password == "admin")
+            {
+                var claims = new[] {
+                    new Claim(ClaimTypes.Name, userName),
+                    new Claim(ClaimTypes.NameIdentifier, userName),
+                };
+                var identity = new ClaimsIdentity(claims, Scheme.Name);
+                var principal = new ClaimsPrincipal(identity);
+                var authTicket = new AuthenticationTicket(principal, Scheme.Name);
+                return Task.FromResult(AuthenticateResult.Success(authTicket));
             }
-            return AuthenticateResult.Fail("UnAuthorized");
+            else
+            {
+                return Task.FromResult(AuthenticateResult.Fail("invalid credential"));
+            }
         }
     }
 }

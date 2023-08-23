@@ -969,24 +969,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Office\\.nuget\\packages\\": {}
+    "C:\\Users\\Farshad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Office\\Downloads\\Project\\test-backend-project\\test-backend-project.csproj",
-      "projectName": "test-backend-project",
-      "projectPath": "C:\\Users\\Office\\Downloads\\Project\\test-backend-project\\test-backend-project.csproj",
-      "packagesPath": "C:\\Users\\Office\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Office\\Downloads\\Project\\test-backend-project\\obj\\",
+      "projectUniqueName": "D:\\Projects\\Mine\\DotNet\\TowMethodRateLimitedAuthenticationAPI\\TwoMethodRateLimitedAuthenticationAPI.csproj",
+      "projectName": "TwoMethodRateLimitedAuthenticationAPI",
+      "projectPath": "D:\\Projects\\Mine\\DotNet\\TowMethodRateLimitedAuthenticationAPI\\TwoMethodRateLimitedAuthenticationAPI.csproj",
+      "packagesPath": "C:\\Users\\Farshad\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Mine\\DotNet\\TowMethodRateLimitedAuthenticationAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Office\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Farshad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1037,7 +1039,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-rc.2.22477.23\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
